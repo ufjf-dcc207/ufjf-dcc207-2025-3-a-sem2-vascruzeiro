@@ -1,4 +1,5 @@
 import './Jogos.css';
+import { useState } from 'react';
 
 type JogosProps = {
   id: number;
@@ -22,8 +23,15 @@ export default function Jogos ({
   nota = 0,
   descricao = 'Informação não disponível',
 }: JogosProps) {
+
+  const [joguei, setJoguei] = useState<boolean>(false);
+
+  const toggleJoguei = () => {
+    setJoguei(!joguei);
+  };
+
   return (
-    <div className='jogos'>
+    <div>
       <div className='Titulo'>{titulo}</div>
       <div className='Imagem'><img src={imagem} alt={titulo} style={{ maxWidth: '300px' }}/></div>
        <div className='info-container'>
@@ -51,6 +59,13 @@ export default function Jogos ({
         </div>
       </div>
       <div className='Descricao'>{descricao}</div>
+      <div>
+        <button 
+          onClick={toggleJoguei}
+        >
+          {joguei ? 'Marcar como Não Jogado' : 'Marcar como Já Joguei'}
+      </button>
+      </div>
     </div>
   )
 }
