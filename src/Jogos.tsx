@@ -1,6 +1,8 @@
 import './Jogos.css';
 import { useState } from 'react';
 
+type Status = 'nao-jogado' | 'jogando' | 'jogado'
+
 type JogosProps = {
   id: number;
   titulo?: string;
@@ -24,14 +26,20 @@ export default function Jogos ({
   descricao = 'Informação não disponível',
 }: JogosProps) {
 
-  const [joguei, setJoguei] = useState<boolean>(false);
+  const [joguei, setJoguei] = useState(0);
 
-  const toggleJoguei = () => {
-    setJoguei(!joguei);
-  };
+  const [clicado0, setClicado0] = useState(false);
+  const [clicado1, setClicado1] = useState(false);
+  const [clicado2, setClicado2] = useState(false);
+
+  const classes = [
+    'nao-jogado',
+    'jogando',
+    'zerado'
+  ];
 
   return (
-    <div className={`jogos ${joguei? 'jogado' : 'nao-jogado'}`}>
+    <div className={`jogos ${classes[joguei]}`}>
       <div className='Titulo'>{titulo}</div>
       <div className='Imagem'><img src={imagem} alt={titulo} style={{ maxWidth: '300px' }}/></div>
        <div className='info-container'>
@@ -61,10 +69,28 @@ export default function Jogos ({
       <div className='Descricao'>{descricao}</div>
       <div>
         <button 
-          className={`Botao ${joguei? 'jogado' : 'nao-jogado'}`}
-          onClick={toggleJoguei}
-        >
-          {joguei ? 'Marcar como Não Jogado' : 'Marcar como Já Joguei'}
+          className={`Botao ${clicado0? 'nao-jogado' : ''}`}
+          onClick={()=>
+          {setJoguei(0);
+           setClicado0(!clicado0);
+          }}>
+          Quero jogar
+      </button>
+      <button 
+        className={`Botao ${clicado1? 'jogando' : ''}`}
+        onClick={()=>
+        {setJoguei(1);
+         setClicado1(!clicado1);
+        }}>
+        Jogando
+      </button>
+      <button 
+        className={`Botao ${clicado2? 'zerado' : ''}`}
+        onClick={()=>
+        {setJoguei(2);
+         setClicado2(!clicado2);
+        }}>
+        Zerado
       </button>
       </div>
     </div>

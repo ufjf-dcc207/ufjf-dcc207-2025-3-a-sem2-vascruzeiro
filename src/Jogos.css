@@ -19,12 +19,16 @@ body {
   border: 2px solid transparent;
 }
 
-.jogos.jogado {
-  border-color:#00ff88
-}
-
 .jogos.nao-jogado {
   border-color: red;
+}
+
+.jogos.jogando {
+  border-color: rgb(255, 179, 0);
+}
+
+.jogos.zerado {
+  border-color: rgb(0, 255, 4);
 }
 
 .jogos:hover {
@@ -120,10 +124,14 @@ body {
   color: #e0e0e0;  
 }
 
-.Botao.jogado {
-  background-color: rgb(105, 122, 79);
-}
-
 .Botao.nao-jogado {
   background-color: rgb(112, 78, 78);
+}
+
+.Botao.jogando {
+  background-color: rgb(255, 179, 0);
+}
+
+.Botao.zerado {
+  background-color: rgb(0, 255, 4);
 }
