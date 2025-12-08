@@ -31,7 +31,7 @@ export default function Jogos ({
   };
 
   return (
-    <div>
+    <div className={`jogos ${joguei? 'jogado' : 'nao-jogado'}`}>
       <div className='Titulo'>{titulo}</div>
       <div className='Imagem'><img src={imagem} alt={titulo} style={{ maxWidth: '300px' }}/></div>
        <div className='info-container'>

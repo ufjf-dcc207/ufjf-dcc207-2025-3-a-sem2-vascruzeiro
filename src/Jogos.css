@@ -16,6 +16,15 @@ body {
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 2px solid transparent;
+}
+
+.jogado {
+  border-color:#00ff88
+}
+
+.nao-jogado {
+  border-color: red;
 }
 
 .jogos:hover {
@@ -101,3 +110,4 @@ body {
   text-align: justify;
   border: 1px solid #333;
 }
+
