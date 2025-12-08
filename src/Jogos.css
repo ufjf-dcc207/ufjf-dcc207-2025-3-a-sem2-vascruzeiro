@@ -19,11 +19,11 @@ body {
   border: 2px solid transparent;
 }
 
-.jogado {
+.jogos.jogado {
   border-color:#00ff88
 }
 
-.nao-jogado {
+.jogos.nao-jogado {
   border-color: red;
 }
 
@@ -111,3 +111,19 @@ body {
   border: 1px solid #333;
 }
 
+.Botao {
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 10px;
+  color: #e0e0e0;  
+}
+
+.Botao.jogado {
+  background-color: rgb(105, 122, 79);
+}
+
+.Botao.nao-jogado {
+  background-color: rgb(112, 78, 78);
+}

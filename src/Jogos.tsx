@@ -61,6 +61,7 @@ export default function Jogos ({
       <div className='Descricao'>{descricao}</div>
       <div>
         <button 
+          className={`Botao ${joguei? 'jogado' : 'nao-jogado'}`}
           onClick={toggleJoguei}
         >
           {joguei ? 'Marcar como Não Jogado' : 'Marcar como Já Joguei'}
