@@ -26,9 +26,11 @@ export default function Jogos({
 
   const [status, setStatus] = useState<number | null>(null);
 
+  const [favorito, setFavorito] = useState(false);
+
   const classes = ['nao-jogado', 'jogando', 'zerado'];
 
-  const cardClasse = status !== null ? classes[status] : 'padrao';
+  const cardClasse = status !== null ? classes[status] : '';
 
   const alteraStatus = (valor: number) => {
     setStatus((prev) => (prev === valor ? null : valor));
@@ -36,6 +38,17 @@ export default function Jogos({
 
   return (
     <div className={`jogos ${cardClasse}`}>
+      {status === 2 && (
+        <div
+          className={`estrela-emoji ${favorito ? "ativo" : "inativo"}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            setFavorito(!favorito);
+          }}
+        >
+          ⭐
+        </div>
+      )}
       <div className="Titulo">{titulo}</div>
       <div className="Imagem">
         <img src={imagem} alt={titulo} style={{ maxWidth: '300px' }} />
