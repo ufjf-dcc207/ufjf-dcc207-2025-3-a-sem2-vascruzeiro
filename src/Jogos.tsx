@@ -1,8 +1,6 @@
 import './Jogos.css';
 import { useState } from 'react';
 
-type Status = 'nao-jogado' | 'jogando' | 'jogado'
-
 type JogosProps = {
   id: number;
   titulo?: string;
