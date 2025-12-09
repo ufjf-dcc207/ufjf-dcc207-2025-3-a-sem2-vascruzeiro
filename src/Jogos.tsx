@@ -28,6 +28,8 @@ export default function Jogos({
 
   const [favorito, setFavorito] = useState(false);
 
+  const [notaUsuario, setNotaUsuario] = useState<number>(0);
+
   const classes = ['nao-jogado', 'jogando', 'zerado'];
 
   const cardClasse = status !== null ? classes[status] : '';
@@ -71,9 +73,32 @@ export default function Jogos({
           <span>{desenvolvedora}</span>
         </div>
         <div className="info-item">
-          <span>Nota:</span>
+          <span>Nota Geral:</span>
           <span className="Nota">{nota > 0 ? `${nota}/10` : '—'}</span>
         </div>
+        {status === 2 && (
+          <div className="info-item">
+            <span>Sua Nota:</span>
+            <div className="nota-usuario">
+              {[1, 2, 3, 4, 5].map((estrela) => (
+                <span
+                  key={estrela}
+                  className={estrela <= notaUsuario ? "estrela-escolhida" : "estrela-nao-escolhida"}
+                  onClick={() => {
+                    if (notaUsuario === estrela) {
+                      setNotaUsuario(0);
+                    } 
+                    else {
+                      setNotaUsuario(estrela);
+                    }
+                  }}
+                >
+                  ⭐
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="Descricao">{descricao}</div>
