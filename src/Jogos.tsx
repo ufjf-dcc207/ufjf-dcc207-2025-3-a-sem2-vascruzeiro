@@ -31,6 +31,7 @@ export default function Jogos ({
   const [clicado2, setClicado2] = useState(false);
 
   const classes = [
+    '',
     'nao-jogado',
     'jogando',
     'zerado'
@@ -69,7 +70,7 @@ export default function Jogos ({
         <button 
           className={`Botao ${clicado0? 'nao-jogado' : ''}`}
           onClick={()=>
-          {setJoguei(0);
+          {setJoguei(1);
            setClicado0(!clicado0);
            setClicado1(false);
            setClicado2(false);
@@ -79,18 +80,17 @@ export default function Jogos ({
       <button 
         className={`Botao ${clicado1? 'jogando' : ''}`}
         onClick={()=>
-        {setJoguei(1);
+        {setJoguei(2);
          setClicado0(false);
          setClicado1(!clicado1);
          setClicado2(false);
-
         }}>
         Jogando
       </button>
       <button 
         className={`Botao ${clicado2? 'zerado' : ''}`}
         onClick={()=>
-        {setJoguei(2);
+        {setJoguei(3);
          setClicado0(false);
          setClicado1(false);
          setClicado2(!clicado2);
