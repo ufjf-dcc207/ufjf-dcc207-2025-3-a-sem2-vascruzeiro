@@ -11,9 +11,9 @@ type JogosProps = {
   desenvolvedora?: string;
   nota?: number;
   descricao: string;
-}
+};
 
-export default function Jogos ({
+export default function Jogos({
   titulo = 'Título não disponível',
   ano = 'Ano não disponível',
   imagem = 'assets/imagem-padrao.jpg',
@@ -24,80 +24,70 @@ export default function Jogos ({
   descricao = 'Informação não disponível',
 }: JogosProps) {
 
-  const [joguei, setJoguei] = useState(0);
+  const [status, setStatus] = useState<number | null>(null);
 
-  const [clicado0, setClicado0] = useState(false);
-  const [clicado1, setClicado1] = useState(false);
-  const [clicado2, setClicado2] = useState(false);
+  const classes = ['nao-jogado', 'jogando', 'zerado'];
 
-  const classes = [
-    '',
-    'nao-jogado',
-    'jogando',
-    'zerado'
-  ];
+  const cardClasse = status !== null ? classes[status] : 'padrao';
+
+  const alteraStatus = (valor: number) => {
+    setStatus((prev) => (prev === valor ? null : valor));
+  };
 
   return (
-    <div className={`jogos ${classes[joguei]}`}>
-      <div className='Titulo'>{titulo}</div>
-      <div className='Imagem'><img src={imagem} alt={titulo} style={{ maxWidth: '300px' }}/></div>
-       <div className='info-container'>
-        <div className='info-item'>
+    <div className={`jogos ${cardClasse}`}>
+      <div className="Titulo">{titulo}</div>
+      <div className="Imagem">
+        <img src={imagem} alt={titulo} style={{ maxWidth: '300px' }} />
+      </div>
+
+      <div className="info-container">
+        <div className="info-item">
           <span>Ano:</span>
           <span>{ano}</span>
         </div>
-        <div className='info-item'>
+        <div className="info-item">
           <span>Estilo:</span>
           <span>{estilo}</span>
         </div>
-        <div className='info-item'>
+        <div className="info-item">
           <span>Plataforma:</span>
           <span>{plataforma}</span>
         </div>
-        <div className='info-item'>
+        <div className="info-item">
           <span>Desenvolvedora:</span>
           <span>{desenvolvedora}</span>
         </div>
-        <div className='info-item'>
+        <div className="info-item">
           <span>Nota:</span>
-          <span className='Nota'>
-            {nota > 0 ? `${nota}/10` : '—'}
-          </span>
+          <span className="Nota">{nota > 0 ? `${nota}/10` : '—'}</span>
         </div>
       </div>
-      <div className='Descricao'>{descricao}</div>
+
+      <div className="Descricao">{descricao}</div>
+
       <div>
-        <button 
-          className={`Botao ${clicado0? 'nao-jogado' : ''}`}
-          onClick={()=>
-          {setJoguei(1);
-           setClicado0(!clicado0);
-           setClicado1(false);
-           setClicado2(false);
-          }}>
+        <button
+          className={`Botao ${status === 0 ? 'nao-jogado' : ''}`}
+          onClick={() => alteraStatus(0)}
+        >
           Quero jogar
-      </button>
-      <button 
-        className={`Botao ${clicado1? 'jogando' : ''}`}
-        onClick={()=>
-        {setJoguei(2);
-         setClicado0(false);
-         setClicado1(!clicado1);
-         setClicado2(false);
-        }}>
-        Jogando
-      </button>
-      <button 
-        className={`Botao ${clicado2? 'zerado' : ''}`}
-        onClick={()=>
-        {setJoguei(3);
-         setClicado0(false);
-         setClicado1(false);
-         setClicado2(!clicado2);
-        }}>
-        Zerado
-      </button>
+        </button>
+
+        <button
+          className={`Botao ${status === 1 ? 'jogando' : ''}`}
+          onClick={() => alteraStatus(1)}
+        >
+          Jogando
+        </button>
+
+        <button
+          className={`Botao ${status === 2 ? 'zerado' : ''}`}
+          onClick={() => alteraStatus(2)}
+        >
+          Zerado
+        </button>
       </div>
     </div>
-  )
+  );
 }
