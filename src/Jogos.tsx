@@ -73,6 +73,8 @@ export default function Jogos ({
           onClick={()=>
           {setJoguei(0);
            setClicado0(!clicado0);
+           setClicado1(false);
+           setClicado2(false);
           }}>
           Quero jogar
       </button>
@@ -80,7 +82,10 @@ export default function Jogos ({
         className={`Botao ${clicado1? 'jogando' : ''}`}
         onClick={()=>
         {setJoguei(1);
+         setClicado0(false);
          setClicado1(!clicado1);
+         setClicado2(false);
+
         }}>
         Jogando
       </button>
@@ -88,6 +93,8 @@ export default function Jogos ({
         className={`Botao ${clicado2? 'zerado' : ''}`}
         onClick={()=>
         {setJoguei(2);
+         setClicado0(false);
+         setClicado1(false);
          setClicado2(!clicado2);
         }}>
         Zerado
