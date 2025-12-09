@@ -136,3 +136,29 @@ body {
 .Botao.zerado {
   background-color: rgb(0, 255, 4);
 }
+
+.estrela-emoji {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 35px;
+  cursor: pointer;
+  user-select: none;
+  transition: 
+    transform 0.15s ease,
+    opacity 0.25s ease,
+    filter 0.25s ease;
+}
+
+.estrela-emoji:hover {
+  transform: scale(1.15);
+}
+
+.estrela-emoji.ativo {
+  opacity: 1;
+}
+
+.estrela-emoji.inativo {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
