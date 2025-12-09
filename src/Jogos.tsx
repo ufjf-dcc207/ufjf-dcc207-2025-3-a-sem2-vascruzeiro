@@ -41,8 +41,7 @@ export default function Jogos({
       {status === 2 && (
         <div
           className={`estrela-emoji ${favorito ? "ativo" : "inativo"}`}
-          onClick={(e) => {
-            e.stopPropagation();
+          onClick={() => {
             setFavorito(!favorito);
           }}
         >
@@ -84,7 +83,7 @@ export default function Jogos({
           className={`Botao ${status === 0 ? 'nao-jogado' : ''}`}
           onClick={() => alteraStatus(0)}
         >
-          Quero jogar
+          Não jogado
         </button>
 
         <button

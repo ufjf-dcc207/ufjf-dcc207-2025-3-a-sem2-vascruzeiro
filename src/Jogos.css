@@ -21,7 +21,7 @@ body {
 }
 
 .jogos.nao-jogado {
-  border-color: red;
+  border-color: rgb(255, 0, 0);
 }
 
 .jogos.jogando {
@@ -35,6 +35,18 @@ body {
 .jogos:hover {
   transform: scale(1.02);
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+}
+
+.jogos.nao-jogado:hover {
+  box-shadow: 0 0 25px rgb(255, 0, 0, 0.5);
+}
+
+.jogos.jogando:hover {
+  box-shadow: 0 0 25px rgb(255, 179, 0, 0.5);
+}
+
+.jogos.zerado:hover {
+  box-shadow: 0 0 25px rgb(0, 255, 4, 0.5);
 }
 
 .Titulo {
@@ -122,11 +134,12 @@ body {
   border-radius: 8px;
   padding: 8px;
   margin: 10px;
-  color: #e0e0e0;  
+  color: #e0e0e0;
+  cursor: pointer;
 }
 
 .Botao.nao-jogado {
-  background-color: rgb(112, 78, 78);
+  background-color: rgb(255, 0, 0);
 }
 
 .Botao.jogando {
